@@ -27,13 +27,31 @@ const Title = tw.div`
 text-gray-500 text-center text-xs py-2 border-b
 `
 
-const CarList = tw.div``;
-const Car = tw.div``;
-const CarImage = tw.img``
-const CarDetails = tw.div``;
-const Service = tw.div``;
-const Time = tw.div``;
-const Price = tw.div``;
+const CarList = tw.div`
+flex flex-col
+`;
+
+const Car = tw.div`
+flex p-4 items-center
+`;
+
+const CarImage = tw.img`
+h-14 mr-4
+`
+
+const CarDetails = tw.div`
+flex-1
+`;
+
+const Service = tw.div`
+font-medium
+`;
+
+const Time = tw.div`
+text-xs text-blue-500
+`;
+
+const Price = tw.div`text-sm`;
 
 
 
