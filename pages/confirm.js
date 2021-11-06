@@ -47,7 +47,7 @@ const Confirm = () => {
     useEffect(() => {
         getPickupCoordinates('Tehran');
         getDropOffCoordinates('Mashhad');
-    },[]);
+    });
 
     return (
         <Wrapper>

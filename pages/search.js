@@ -7,7 +7,7 @@ import Link from 'next/link'
 function search() {
     return (
         <Wrapper>
-            <Link href="/">
+            <Link passHref={true} href="/">
                 <ButtonContainer>
                     <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
                 </ButtonContainer>
@@ -28,7 +28,7 @@ function search() {
                 <StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png" />
                 Saved Places
             </SavedPlaces>
-            <Link href="/confirm">
+            <Link passHref={true} href="/confirm">
                 <ConfirmButton>
                     Confirm
                 </ConfirmButton>
