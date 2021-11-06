@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import tw from 'tailwind-styled-components'
-import Map from './components/map';
+import Map from '../components/map';
 import Link from 'next/link'
 
 

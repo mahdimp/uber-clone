@@ -7,13 +7,11 @@ import Link from 'next/link'
 function search() {
     return (
         <Wrapper>
-            <Link passHref={true} href="/">
-
+            <Link href="/">
                 <ButtonContainer>
                     <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
                 </ButtonContainer>
             </Link>
-
             <InputContainer>
                 <FromToIcons>
                     <Circle src="https://img.icons8.com/ios-filled/50/9CA3AF/filled-circle.png" />
@@ -30,11 +28,9 @@ function search() {
                 <StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png" />
                 Saved Places
             </SavedPlaces>
-            <ConfirmButtonContainer>
-                <ConfirmButton>
-                    Confirm
-                </ConfirmButton>
-            </ConfirmButtonContainer>
+            <ConfirmButton>
+                Confirm
+            </ConfirmButton>
         </Wrapper>
     )
 }
@@ -47,7 +43,7 @@ bg-gray-200 h-screen
 `
 
 const ButtonContainer = tw.div`
-bg-white px-4
+bg-white px-4 cursor-pointer
 `
 
 const InputContainer = tw.div`
@@ -93,10 +89,7 @@ const StarIcon = tw.img`
 bg-gray-400 w-10 h-10 p-2 rounded-full mr-2
 `
 
-const ConfirmButtonContainer = tw.div`
-flex flex-col
+const ConfirmButton = tw.div`
+text-white bg-black text-center mx-4 px-4 py-3 text-2xl cursor-pointer
 `
 
-const ConfirmButton = tw.button`
-flex-1 text-white  bg-black rounded-md p-2 m-3
-`
