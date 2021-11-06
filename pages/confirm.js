@@ -54,6 +54,12 @@ const Confirm = () => {
               pickUpCoordinates={pickUpCoordinates}
               dropOffCoordinates={dropOffCoordinates}
             />
+            <RideSelector>
+                Ride Selector
+            </RideSelector>
+            <ConfirmButton>
+                Confirm UberX
+            </ConfirmButton>
         </Wrapper>
     )
 }
@@ -63,4 +69,6 @@ const Confirm = () => {
 
 export default Confirm
 
-const Wrapper = tw.div`flex h-screen`
+const Wrapper = tw.div`flex h-screen flex-col`
+const RideSelector = tw.div``
+const ConfirmButton = tw.div``
