@@ -71,9 +71,14 @@ const Confirm = () => {
 
 export default Confirm
 
-const Wrapper = tw.div`flex h-screen flex-col`
+const Wrapper = tw.div`
+flex h-screen flex-col
+`
 
 const ConfirmButton = tw.div`
-bg-black text-white text-center
+bg-black text-white text-center m-4 py-4 text-xl
 `
-const RideContainer = tw.div`flex flex-1 flex-col`
+
+const RideContainer = tw.div`
+flex flex-1 flex-col
+`
