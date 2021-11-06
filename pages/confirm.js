@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components/dist/tailwind'
-import Map from '../components/map';
-import RideSelector from '../components/ride-selector';
+import Map from '../components/Map';
+import RideSelector from '../components/RideSelector';
 
 const API_TOKEN = "pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbXNiIn0.sTFFue68x8aPsuekEiZLNg";
 
