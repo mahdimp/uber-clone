@@ -7,7 +7,7 @@ const API_TOKEN = "pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbX
 
 const Confirm = () => {
 
-    const [pickOffCoordinates, setPickOffCoordinates] = useState()
+    const [pickUpCoordinates, setPickUpCoordinates] = useState()
     const [dropOffCoordinates, setDropOffCoordinates] = useState()
 
      const getPickupCoordinates = (name) => {
@@ -18,10 +18,11 @@ const Confirm = () => {
             }))
             .then(res => res.json())
             .then(res => {
-                console.error(res)
                 if(res && res.features){
                     const coordinate = res.features[0].center;
-                    pickOffCoordinates = coordinate;
+                    pickUpCoordinates = coordinate;
+                    setPickUpCoordinates(coordinate)
+
                 }
             })
     }
@@ -36,18 +37,23 @@ const Confirm = () => {
             .then(res => {
                 if(res && res.features){
                     const coordinate = res.features[0].center;
-                    dropOffCoordinates = coordinate;
+                    setDropOffCoordinates(coordinate)
+
                 }
             })
     }
 
     useEffect(() => {
-        getPickupCoordinates('Tehran')
-    }, [])
+        getPickupCoordinates('Tehran');
+        getDropOffCoordinates('Mashhad');
+    },[]);
 
     return (
         <Wrapper>
-            <Map />
+            <Map 
+              pickUpCoordinates={pickUpCoordinates}
+              dropOffCoordinates={dropOffCoordinates}
+            />
         </Wrapper>
     )
 }
