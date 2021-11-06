@@ -28,9 +28,11 @@ function search() {
                 <StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png" />
                 Saved Places
             </SavedPlaces>
-            <ConfirmButton>
-                Confirm
-            </ConfirmButton>
+            <Link href="/confirm">
+                <ConfirmButton>
+                    Confirm
+                </ConfirmButton>
+            </Link>
         </Wrapper>
     )
 }

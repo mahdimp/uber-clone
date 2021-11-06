@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl'
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbXNiIn0.sTFFue68x8aPsuekEiZLNg';
 
 
-export default function Map () {
+const  Map =  () => {
     useEffect(() => {
         const map = new mapboxgl.Map({
           container: 'map',
@@ -20,6 +20,7 @@ export default function Map () {
     )
 }
 
+export default Map;
 
 const Wrapper = tw.div`
 flex flex-1
