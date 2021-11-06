@@ -46,7 +46,7 @@ const Confirm = () => {
     }
 
     useEffect(() => {
-        getPickupCoordinates('Tehran');
+        getPickupCoordinates('Quchan');
         getDropOffCoordinates('Mashhad');
     },[]);
 
