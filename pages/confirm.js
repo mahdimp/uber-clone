@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components/dist/tailwind'
 import Map from '../components/map';
+import RideSelector from '../components/ride-selector';
 
 const API_TOKEN = "pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbXNiIn0.sTFFue68x8aPsuekEiZLNg";
 
@@ -54,9 +55,7 @@ const Confirm = () => {
               pickUpCoordinates={pickUpCoordinates}
               dropOffCoordinates={dropOffCoordinates}
             />
-            <RideSelector>
-                Ride Selector
-            </RideSelector>
+            <RideSelector/>
             <ConfirmButton>
                 Confirm UberX
             </ConfirmButton>
@@ -70,5 +69,4 @@ const Confirm = () => {
 export default Confirm
 
 const Wrapper = tw.div`flex h-screen flex-col`
-const RideSelector = tw.div``
 const ConfirmButton = tw.div``
