@@ -12,7 +12,7 @@ const Confirm = () => {
     const [pickUpCoordinates, setPickUpCoordinates] = useState()
     const [dropOffCoordinates, setDropOffCoordinates] = useState()
 
-     const getPickupCoordinates = (name) => {
+    const getPickupCoordinates = (name) => {
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${name}.json?` + new
             URLSearchParams({
                 access_token: API_TOKEN,
@@ -20,7 +20,7 @@ const Confirm = () => {
             }))
             .then(res => res.json())
             .then(res => {
-                if(res && res.features){
+                if (res && res.features) {
                     const coordinate = res.features[0].center;
                     pickUpCoordinates = coordinate;
                     setPickUpCoordinates(coordinate)
@@ -37,7 +37,7 @@ const Confirm = () => {
             }))
             .then(res => res.json())
             .then(res => {
-                if(res && res.features){
+                if (res && res.features) {
                     const coordinate = res.features[0].center;
                     setDropOffCoordinates(coordinate)
 
@@ -48,18 +48,20 @@ const Confirm = () => {
     useEffect(() => {
         getPickupCoordinates('Quchan');
         getDropOffCoordinates('Mashhad');
-    },[]);
+    }, []);
 
     return (
         <Wrapper>
-            <Map 
-              pickUpCoordinates={pickUpCoordinates}
-              dropOffCoordinates={dropOffCoordinates}
+            <Map
+                pickUpCoordinates={pickUpCoordinates}
+                dropOffCoordinates={dropOffCoordinates}
             />
-            <RideSelector/>
-            <ConfirmButton>
-                Confirm UberX
-            </ConfirmButton>
+            <RideContainer>
+                <RideSelector />
+                <ConfirmButton>
+                    Confirm UberX
+                </ConfirmButton>
+            </RideContainer>
         </Wrapper>
     )
 }
@@ -70,4 +72,8 @@ const Confirm = () => {
 export default Confirm
 
 const Wrapper = tw.div`flex h-screen flex-col`
-const ConfirmButton = tw.div``
+
+const ConfirmButton = tw.div`
+bg-black text-white text-center
+`
+const RideContainer = tw.div`flex flex-1 flex-col`
