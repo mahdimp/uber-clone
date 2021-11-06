@@ -58,9 +58,11 @@ const Confirm = () => {
             />
             <RideContainer>
                 <RideSelector />
-                <ConfirmButton>
-                    Confirm UberX
-                </ConfirmButton>
+                <ConfirmButtonContainer>
+                    <ConfirmButton>
+                        Confirm UberX
+                    </ConfirmButton>
+                </ConfirmButtonContainer>
             </RideContainer>
         </Wrapper>
     )
@@ -73,6 +75,10 @@ export default Confirm
 
 const Wrapper = tw.div`
 flex h-screen flex-col
+`
+
+const ConfirmButtonContainer = tw.div`
+border-t-2
 `
 
 const ConfirmButton = tw.div`
