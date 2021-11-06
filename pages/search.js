@@ -1,10 +1,13 @@
 import React from 'react'
 import tw from 'tailwind-styled-components/dist/tailwind'
 import Link from 'next/link'
+import { useState } from 'react';
 
 
 
-function search() {
+function Search() {
+    const [dropOff, setDropOff] = useState("");
+    const [pickUp, setPickUp] = useState("");
     return (
         <Wrapper>
             <Link passHref={true} href="/">
@@ -19,8 +22,8 @@ function search() {
                     <Square src="https://img.icons8.com/windows/50/000000/square-full.png" />
                 </FromToIcons>
                 <InputBoxes>
-                    <Input placeholder="Enter pickup location"></Input>
-                    <Input placeholder="Where to?"></Input>
+                    <Input value={pickUp} onChange={(e)=> {setPickUp(e.target.value)}} placeholder="Enter pickup location"></Input>
+                    <Input value={dropOff} onChange={(e=> {setDropOff(e.target.value)})} placeholder="Where to?"></Input>
                 </InputBoxes>
                 <PlusIcon src="https://img.icons8.com/ios/50/000000/plus-math.png" />
             </InputContainer>
@@ -28,7 +31,13 @@ function search() {
                 <StarIcon src="https://img.icons8.com/ios-filled/50/ffffff/star--v1.png" />
                 Saved Places
             </SavedPlaces>
-            <Link passHref={true} href="/confirm">
+            <Link passHref={true} href={{
+                pathname: "/confirm",
+                query: {
+                    pickUp,
+                    dropOff
+                }
+            }}>
                 <ConfirmButton>
                     Confirm
                 </ConfirmButton>
@@ -37,7 +46,7 @@ function search() {
     )
 }
 
-export default search
+export default Search
 
 
 const Wrapper = tw.div`

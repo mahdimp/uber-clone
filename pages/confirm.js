@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useRouter } from 'next/dist/client/router';
 import React from 'react'
 import { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components/dist/tailwind'
@@ -8,7 +9,8 @@ import RideSelector from '../components/RideSelector';
 const API_TOKEN = "pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbXNiIn0.sTFFue68x8aPsuekEiZLNg";
 
 const Confirm = () => {
-
+    const router = useRouter();
+    const { pickUp, dropOff } = router.query;
     const [pickUpCoordinates, setPickUpCoordinates] = useState()
     const [dropOffCoordinates, setDropOffCoordinates] = useState()
 
@@ -46,9 +48,12 @@ const Confirm = () => {
     }
 
     useEffect(() => {
-        getPickupCoordinates('Quchan');
-        getDropOffCoordinates('Mashhad');
-    }, []);
+        console.dir({
+            pickUp, dropOff
+        })
+        getPickupCoordinates(pickUp);
+        getDropOffCoordinates(dropOff);
+    }, [pickUp, dropOff]);
 
     return (
         <Wrapper>
