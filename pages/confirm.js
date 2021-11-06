@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components/dist/tailwind'
 import Map from '../components/Map';
 import RideSelector from '../components/RideSelector';
+import Link from 'next/dist/client/link';
 
 const API_TOKEN = "pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbXNiIn0.sTFFue68x8aPsuekEiZLNg";
 
@@ -57,6 +58,9 @@ const Confirm = () => {
 
     return (
         <Wrapper>
+            <Link passHref={true} href="/search">
+                <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+            </Link>
             <Map
                 pickUpCoordinates={pickUpCoordinates}
                 dropOffCoordinates={dropOffCoordinates}
@@ -80,6 +84,10 @@ export default Confirm
 
 const Wrapper = tw.div`
 flex h-screen flex-col
+`
+
+const BackButton = tw.img`
+fixed top-5 left-5 z-50 bg-white rounded-full shadow-md cursor-pointer
 `
 
 const ConfirmButtonContainer = tw.div`
