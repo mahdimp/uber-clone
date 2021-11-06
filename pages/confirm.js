@@ -87,7 +87,7 @@ border-t-2 cursor-pointer
 `
 
 const ConfirmButton = tw.div`
-bg-black text-white text-center m-4 py-4 text-xl
+bg-black text-white text-center m-4 py-4 text-xl border rounded-md
 `
 
 const RideContainer = tw.div`

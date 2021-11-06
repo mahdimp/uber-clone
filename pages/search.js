@@ -101,6 +101,6 @@ bg-gray-400 w-10 h-10 p-2 rounded-full mr-2
 `
 
 const ConfirmButton = tw.div`
-text-white bg-black text-center mx-4 px-4 py-3 text-2xl cursor-pointer
+text-white bg-black text-center mx-4 mt-4 px-4 py-3 text-2xl cursor-pointer rounded-lg
 `
 

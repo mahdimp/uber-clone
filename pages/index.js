@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import tw from 'tailwind-styled-components'
 import Map from '../components/Map';
 import Link from 'next/link'
@@ -23,18 +22,24 @@ export default function Home() {
               <ActionButtonImage src="https://i.ibb.co/Xx4G91m/uberblack.png"></ActionButtonImage>
             </ActionButton>
           </Link>
+          <Link passHref={true} href="/search">
           <ActionButton>
             Wheels
             <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png"></ActionButtonImage>
           </ActionButton>
+          </Link>
+          <Link passHref={true} href="/search">
           <ActionButton>
             Reserve
             <ActionButtonImage src="https://i.ibb.co/5RjchBg/uberschedule.png"></ActionButtonImage>
           </ActionButton>
+          </Link>
         </ActionButtons>
+        <Link passHref={true} href="/search">
         <InputButton>
           Where to ?
         </InputButton>
+        </Link>
       </ActionItems>
     </Wrapper>
   )
@@ -66,7 +71,7 @@ flex mt-5 mx-2
 `
 
 const ActionButton = tw.div`
-flex flex-1 flex-col items-center justify-center bg-gray-200  rounded-lg m-3 h-32 transform hover:scale-105 transition
+flex flex-1 flex-col items-center justify-center bg-gray-200  rounded-lg m-3 h-32 transform hover:scale-105 transition cursor-pointer
 `
 
 const ActionButtonImage = tw.img`
@@ -74,5 +79,5 @@ h-3/5
 `
 
 const InputButton = tw.div`
-h-20 bg-gray-200 text-2xl p-4 flex items-center mx-4
+h-20 bg-gray-200 text-2xl p-4 flex items-center mx-5 my-3 cursor-pointer rounded-md
 `
