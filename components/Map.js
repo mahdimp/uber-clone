@@ -53,6 +53,6 @@ const addMarkerToMap = (map, coordinates) => {
 export default Map;
 
 const Wrapper = tw.div`
-flex flex-1
+flex flex-1 h-1/2
 `
 

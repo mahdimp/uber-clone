@@ -78,7 +78,7 @@ flex h-screen flex-col
 `
 
 const ConfirmButtonContainer = tw.div`
-border-t-2
+border-t-2 cursor-pointer
 `
 
 const ConfirmButton = tw.div`
@@ -86,5 +86,5 @@ bg-black text-white text-center m-4 py-4 text-xl
 `
 
 const RideContainer = tw.div`
-flex flex-1 flex-col
+flex flex-1 flex-col h-1/2
 `
