@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components/dist/tailwind'
@@ -47,7 +48,7 @@ const Confirm = () => {
     useEffect(() => {
         getPickupCoordinates('Tehran');
         getDropOffCoordinates('Mashhad');
-    });
+    },[]);
 
     return (
         <Wrapper>
