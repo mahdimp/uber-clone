@@ -19,7 +19,7 @@ const RideSelector = ({ pickUpCoordinates, dropOffCoordinates }) => {
         }
     }, [pickUpCoordinates, dropOffCoordinates])
 
-    const getDriverDistance = () => Math.floor(Math.random() * 15) + 5;
+    const getDriverDistance = () => Math.floor(Math.random() * 7) + 2;
 
 
     return (
