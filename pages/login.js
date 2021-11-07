@@ -19,7 +19,7 @@ const Login = () => {
             <UberLogo src="https://i.ibb.co/ZMhy8ws/uber-logo.png"></UberLogo>
             <Title>Login to access your account</Title>
             <HeadImage src="https://i.ibb.co/CsV9RYZ/login-image.png"></HeadImage>
-            <SignInButton onClick={()=> signInWithPopup(auth, provider )}>Sign in with google</SignInButton>
+            <SignInButton onClick={()=> signInWithPopup(auth, provider )}>Sign in with Google</SignInButton>
         </Wrapper>
     )
 }
@@ -30,7 +30,7 @@ const Wrapper = tw.div`
 flex flex-col h-screen w-screen bg-gray-200 p-4
 `
 const SignInButton = tw.button`
-bg-black text-white text-center py-4 mt-8 self-center w-full 
+bg-black text-white text-center py-4 mt-8 self-center w-full
 `
 
 const UberLogo = tw.img`
@@ -42,5 +42,5 @@ text-5xl pt-4 text-gray-500
 `
 
 const HeadImage = tw.img`
-object-contain w-full
+object-contain w-full max-w-lg mx-auto
 `

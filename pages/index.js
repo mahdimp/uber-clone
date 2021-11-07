@@ -88,11 +88,11 @@ const UserImage = tw.img`
 h-12 rounded-full border border-grey-200 padding-px cursor-pointer
 `
 const ActionButtons = tw.div`
-flex mt-5 mx-2
+flex mt-2 mx-2
 `
 
 const ActionButton = tw.div`
-flex flex-1 flex-col items-center justify-center bg-gray-200  rounded-lg m-3 h-32 transform hover:scale-105 transition cursor-pointer
+flex flex-1 flex-col items-center justify-center bg-gray-200  rounded-lg m-3 h-20 transform hover:scale-105 transition cursor-pointer
 `
 
 const ActionButtonImage = tw.img`
