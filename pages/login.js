@@ -16,9 +16,9 @@ const Login = () => {
     }, [])
     return (
         <Wrapper>
-            <UberLogo src="https://i.ibb.com/ZMhy8ws/uber.clone.png"></UberLogo>
+            <UberLogo src="https://i.ibb.co/ZMhy8ws/uber-logo.png"></UberLogo>
             <Title>Login to access your account</Title>
-            <HeaderImage src="https://i.ibb.com/CsV9RYZ/login-user.png"></HeaderImage>
+            <HeadImage src="https://i.ibb.co/CsV9RYZ/login-image.png"></HeadImage>
             <SignInButton onClick={()=> signInWithPopup(auth, provider )}>Sign in with google</SignInButton>
         </Wrapper>
     )
@@ -26,8 +26,21 @@ const Login = () => {
 
 export default Login
 
-const Wrapper = tw.div``
-const Title = tw.div``
-const UberLogo = tw.img``
-const HeaderImage = tw.img``
-const SignInButton = tw.button``
+const Wrapper = tw.div`
+flex flex-col h-screen w-screen bg-gray-200 p-4
+`
+const SignInButton = tw.button`
+bg-black text-white text-center py-4 mt-8 self-center w-full 
+`
+
+const UberLogo = tw.img`
+h-20 w-auto object-contain self-start
+`
+
+const Title = tw.div`
+text-5xl pt-4 text-gray-500
+`
+
+const HeadImage = tw.img`
+object-contain w-full
+`
