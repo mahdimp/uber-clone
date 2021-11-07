@@ -6,8 +6,8 @@ import tw from 'tailwind-styled-components/dist/tailwind'
 import Map from '../components/Map';
 import RideSelector from '../components/RideSelector';
 import Link from 'next/dist/client/link';
+import { mapBoxApiToken, mapBoxPlacesApiUrl } from '../constants/MapBox';
 
-const API_TOKEN = "pk.eyJ1IjoibWFoZGltcCIsImEiOiJjazJmdzdiZ24wbW12M3BvMnIyYWppbXNiIn0.sTFFue68x8aPsuekEiZLNg";
 
 const Confirm = () => {
     const router = useRouter();
@@ -16,9 +16,9 @@ const Confirm = () => {
     const [dropOffCoordinates, setDropOffCoordinates] = useState()
 
     const getPickupCoordinates = (name) => {
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${name}.json?` + new
+        fetch(`${mapBoxPlacesApiUrl}/${name}.json?` + new
             URLSearchParams({
-                access_token: API_TOKEN,
+                access_token: mapBoxApiToken,
                 limit: 1
             }))
             .then(res => res.json())
@@ -33,9 +33,9 @@ const Confirm = () => {
     }
 
     const getDropOffCoordinates = (name) => {
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${name}.json?` + new
+        fetch(`${mapBoxPlacesApiUrl}/${name}.json?` + new
             URLSearchParams({
-                access_token: API_TOKEN,
+                access_token: mapBoxApiToken,
                 limit: 1
             }))
             .then(res => res.json())
@@ -50,7 +50,7 @@ const Confirm = () => {
 
     useEffect(() => {
         console.dir({
-            pickUp, dropOff
+            pickUpCoordinates, dropOffCoordinates
         })
         getPickupCoordinates(pickUp);
         getDropOffCoordinates(dropOff);
@@ -66,7 +66,10 @@ const Confirm = () => {
                 dropOffCoordinates={dropOffCoordinates}
             />
             <RideContainer>
-                <RideSelector />
+                <RideSelector
+                    pickUpCoordinates={pickUpCoordinates}
+                    dropOffCoordinates={dropOffCoordinates}
+                />
                 <ConfirmButtonContainer>
                     <ConfirmButton>
                         Confirm UberX
