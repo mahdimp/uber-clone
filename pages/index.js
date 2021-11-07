@@ -1,9 +1,30 @@
+import { useState, useEffect } from 'react';
 import tw from 'tailwind-styled-components'
 import Map from '../components/Map';
 import Link from 'next/link'
+import { auth } from '../firebase';
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { useRouter } from 'next/dist/client/router';
 
 
 export default function Home() {
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    return onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser({
+          name: user.displayName,
+          photo: user.photoURL
+        });
+      } else {
+        setUser(null);
+        router.push('/login')
+      }
+    })
+  }, [])
+
   return (
     <Wrapper>
       <Map />
@@ -11,8 +32,8 @@ export default function Home() {
         <Header>
           <UberImage src="https://i.ibb.co/84stgjq/uber-technologies-new-20218114.jpg"></UberImage>
           <Profile>
-            <Name>Mahdi MP</Name>
-            <UserImage src="https://avatars.githubusercontent.com/u/106799?s=120&v=4"></UserImage>
+            <Name>{user && user.name}</Name>
+            <UserImage onClick={() => signOut(auth)} src={user && user.photo}></UserImage>
           </Profile>
         </Header>
         <ActionButtons>
@@ -23,22 +44,22 @@ export default function Home() {
             </ActionButton>
           </Link>
           <Link passHref={true} href="/search">
-          <ActionButton>
-            Wheels
-            <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png"></ActionButtonImage>
-          </ActionButton>
+            <ActionButton>
+              Wheels
+              <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png"></ActionButtonImage>
+            </ActionButton>
           </Link>
           <Link passHref={true} href="/search">
-          <ActionButton>
-            Reserve
-            <ActionButtonImage src="https://i.ibb.co/5RjchBg/uberschedule.png"></ActionButtonImage>
-          </ActionButton>
+            <ActionButton>
+              Reserve
+              <ActionButtonImage src="https://i.ibb.co/5RjchBg/uberschedule.png"></ActionButtonImage>
+            </ActionButton>
           </Link>
         </ActionButtons>
         <Link passHref={true} href="/search">
-        <InputButton>
-          Where to ?
-        </InputButton>
+          <InputButton>
+            Where to ?
+          </InputButton>
         </Link>
       </ActionItems>
     </Wrapper>
@@ -64,7 +85,7 @@ const Name = tw.div`
 mx-4 w-20 text-sm
 `
 const UserImage = tw.img`
-h-12 rounded-full border border-grey-200 padding-px
+h-12 rounded-full border border-grey-200 padding-px cursor-pointer
 `
 const ActionButtons = tw.div`
 flex mt-5 mx-2
