@@ -85,7 +85,7 @@ const Name = tw.div`
 mx-4 w-20 text-sm
 `
 const UserImage = tw.img`
-h-12 rounded-full border border-grey-200 padding-px cursor-pointer
+h-12 rounded-full border border-grey-200 padding-px cursor-pointer mr-4
 `
 const ActionButtons = tw.div`
 flex mt-2 mx-2
